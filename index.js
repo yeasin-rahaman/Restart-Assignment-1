@@ -13,6 +13,11 @@ const Categories = () => {
 
 };
 
+
+// const ProductsByCategory = (category) => {
+//     console.log(category);
+// }
+
 // Display Products Home 3 slice 
 
 const displayProductsHome = (products) => {
@@ -104,28 +109,36 @@ const displayAllProducts = (products) => {
     container.innerHTML = html;
 };
 
-
-
-
-
 // Display Categories
 
 
+
+const ProductsByCategory = (category) => {
+
+    fetch(`https://fakestoreapi.com/products/category/${category}`)
+        .then((res) => res.json())
+        .then((json) => displayAllProducts(json));
+}
+
 const displayCategories = (categories) => {
-
     const categoriesButtons = document.getElementById("CategoriesButtons");
-    categoriesButtons.innerHTML = "";
+    categoriesButtons.innerHTML = ""; // clear existing buttons
 
-    for (let category of categories) {
-        categoriesButtons.innerHTML += `
-            <button type="button" 
-                    class="btn btn-outline-primary m-2">
-                ${category}
-            </button>
-        `;
-    }
+    categories.forEach(category => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "btn btn-outline-primary m-2";
+        button.textContent = category;
 
+        // Add click event
+        button.addEventListener("click", () => {
+            ProductsByCategory(category);
+        });
+
+        categoriesButtons.appendChild(button);
+    });
 };
+
 
 
 loadProducts();
