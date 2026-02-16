@@ -14,11 +14,6 @@ const Categories = () => {
 };
 
 
-// const ProductsByCategory = (category) => {
-//     console.log(category);
-// }
-
-// Display Products Home 3 slice 
 
 const displayProductsHome = (products) => {
     const container = document.getElementById("homeProducts");
@@ -49,7 +44,7 @@ const displayProductsHome = (products) => {
                         <h6 class="card-title">${product.title}</h6>
                         <p class="fw-bold">$${product.price}</p>
                         <div class="d-flex justify-content-between">
-                            <button class="btn btn-outline-secondary btn-sm">Details</button>
+                            <button class="btn btn-outline-secondary btn-sm" onclick=DetailsModal(${product.id})>Details</button>
                             <button class="btn btn-primary btn-sm">
                                 <i class="bi bi-cart"></i> Add
                             </button>
@@ -62,6 +57,63 @@ const displayProductsHome = (products) => {
 
     container.innerHTML = html;
 };
+
+
+
+const DetailsModal = (id) => {
+    fetch(`https://fakestoreapi.com/products/${id}`)
+        .then((res) => res.json())
+        .then((json) => displayModal(json));
+
+}
+
+
+const displayModal = (product) => {
+    const container = document.getElementById("DetailsModal");
+
+    if (!container) {
+        console.error("home Products element not found");
+        return;
+    }
+
+    container.innerHTML = "";
+
+    let html = "";
+    html += `
+         
+                <div class="card shadow-sm h-100">
+                    <img src="${product.image}" class="card-img-top img-fluid" 
+                         style="height:300px; object-fit:contain;">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-primary">${product.category}</span>
+                            <span>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                ${product.rating.rate} (${product.rating.count})
+                            </span>
+                        </div>
+                        <h6 class="card-title">${product.title}</h6>
+                        <p class="">$${product.description}</p>
+                        <p class="fw-bold">$${product.price}</p>
+                     
+                            <button class="btn btn-primary btn-sm w-100>
+                                <i class="bi bi-cart"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+        
+        `;
+
+
+    container.innerHTML = html;
+    const modalElement = document.getElementById('exampleModalCenter');
+    const modal = new bootstrap.Modal(modalElement);
+
+    modal.show();
+};
+
+
 
 
 // Display Products Home 3 slice 
@@ -95,7 +147,7 @@ const displayAllProducts = (products) => {
                         <h6 class="card-title">${product.title}</h6>
                         <p class="fw-bold">$${product.price}</p>
                         <div class="d-flex justify-content-between">
-                            <button class="btn btn-outline-secondary btn-sm">Details</button>
+                       <button class="btn btn-outline-secondary btn-sm" onclick=DetailsModal(${product.id})>Details</button>
                             <button class="btn btn-primary btn-sm">
                                 <i class="bi bi-cart"></i> Add
                             </button>
