@@ -15,102 +15,53 @@
     <link rel="stylesheet" href="style.css">
 
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                url('./Assets/banner-image.png') center/cover no-repeat;
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            color: white;
-            /* text-align: center; */
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-        }
-
-
-
-        /* Feature Icons */
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: #eef2ff;
-            color: #4f46e5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            font-size: 24px;
-            margin: 0 auto 15px;
-        }
-
-        /* Product Card */
-        .card img {
-            max-height: 450px;
-            object-fit: cover;
-        }
-
-        /* Footer */
-        footer {
-            background: #111827;
-            color: #d1d5db;
-        }
-
-        footer a {
-            color: #d1d5db;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: white;
-        }
-    </style>
 </head>
 
 <body>
-
     <!-- ================= NAVBAR ================= -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
         <div class="container">
 
             <!-- Logo -->
-            <a class="navbar-brand fw-bold text-primary" href="#">SwiftCart</a>
+            <a class="navbar-brand fw-bold fs-4 text-primary" href="/index.html">
+                SwiftCart
+            </a>
 
-            <!-- Toggle Button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Menu Items -->
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./AllProcuctsPage.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                </ul>
-            </div>
-
-            <!-- Cart -->
-            <div class="d-flex">
-                <button class="btn position-relative">
+            <div class="d-flex align-items-center order-lg-3">
+                <button class="btn position-relative me-2">
                     <i class="bi bi-cart fs-5"></i>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        3
+                        2
                     </span>
                 </button>
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+            </div>
+
+            <!-- Center Menu -->
+            <div class="collapse navbar-collapse justify-content-center order-lg-2" id="navbarNav">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./AllProcuctsPage.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
             </div>
 
         </div>
     </nav>
+
 
     <!-- ================= HERO SECTION ================= -->
     <section class="hero">
@@ -170,56 +121,85 @@
         </div>
     </section>
 
-    <!-- ================= NEWSLETTER ================= -->
-    <section class="py-5 bg-primary text-white text-center">
-        <div class="container">
-            <h4>Subscribe to Our Newsletter</h4>
-            <p>Get the latest news and offers directly to your inbox.</p>
 
-            <form class="row justify-content-center g-2">
-                <div class="col-md-4 col-8">
-                    <input type="email" class="form-control" placeholder="Enter your email">
-                </div>
-                <div class="col-auto">
-                    <button class="btn btn-dark">Subscribe</button>
-                </div>
-            </form>
-        </div>
-    </section>
 
     <!-- ================= FOOTER ================= -->
-    <footer class="py-4">
+    <footer class="pt-5 pb-3" style="background-color:#1f2937; color:#cbd5e1;">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5 class="text-white">SwiftCart</h5>
-                    <p>Your one-stop shop for fashion and lifestyle products.</p>
+
+            <div class="row gy-4">
+
+                <!-- Column 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold text-white mb-3">SwiftCart</h5>
+                    <p class="small">
+                        Your one-stop shop for all your fashion and lifestyle needs.
+                        Quality products, fast delivery, and excellent support.
+                    </p>
                 </div>
 
-                <div class="col-md-4">
-                    <h6 class="text-white">Quick Links</h6>
+                <!-- Column 2 -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-uppercase text-secondary mb-3">Quick Links</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#" class="footer-link">Home</a></li>
+                        <li><a href="#" class="footer-link">Products</a></li>
+                        <li><a href="#" class="footer-link">About</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
                     </ul>
                 </div>
 
-                <div class="col-md-4">
-                    <h6 class="text-white">Follow Us</h6>
-                    <i class="bi bi-facebook me-2"></i>
-                    <i class="bi bi-twitter me-2"></i>
-                    <i class="bi bi-instagram me-2"></i>
-                    <i class="bi bi-linkedin"></i>
+                <!-- Column 3 -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-uppercase text-secondary mb-3">Support</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">FAQ</a></li>
+                        <li><a href="#" class="footer-link">Shipping</a></li>
+                        <li><a href="#" class="footer-link">Returns</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                    </ul>
                 </div>
+
+                <!-- Column 4 -->
+                <div class="col-lg-5 col-md-6">
+                    <h6 class="text-uppercase text-secondary mb-3">
+                        Subscribe to Our Newsletter
+                    </h6>
+                    <p class="small">
+                        The latest news, articles, and resources,
+                        sent to your inbox weekly.
+                    </p>
+
+                    <form class="d-flex gap-2">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn text-white" style="background: linear-gradient(90deg,#6366f1,#8b5cf6);">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+
             </div>
 
-            <hr class="border-secondary">
+            <!-- Divider -->
+            <hr class="my-4" style="border-color:#374151;">
 
-            <div class="text-center">
-                <small>© 2025 SwiftCart. All rights reserved.</small>
+            <!-- Bottom Row -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+
+                <p class="small mb-3 mb-md-0">
+                    © 2025 SwiftCart, Inc. All rights reserved.
+                </p>
+
+                <div class="fs-5">
+                    <a href="#" class="footer-icon me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="footer-icon me-3"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="footer-icon me-3"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="footer-icon me-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="footer-icon"><i class="bi bi-envelope"></i></a>
+                </div>
+
             </div>
+
         </div>
     </footer>
 
